@@ -1,0 +1,21 @@
+name: Deploy Application
+
+on:
+  workflow_run:
+    workflows:
+      - Build and Publish Docker Image
+    types:
+      - completed
+
+jobs:
+  deploy:
+    name: Deploy Application
+    runs-on: ubuntu-24.04
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Deployment placeholder
+        run: |
+          echo "Docker image was built and published successfully."
+          echo "Real deployment step will be added later."
