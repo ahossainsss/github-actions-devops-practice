@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    image: github-actions-devops-practice
+    container_name: devops-practice-app
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
